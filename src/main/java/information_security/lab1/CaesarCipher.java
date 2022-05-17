@@ -5,19 +5,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import static information_security.Data.ENG_ALPHABET_SIZE;
+import static information_security.Data.RU_ALPHABET_SIZE;
+import static information_security.Data.inputText;
+import static information_security.Data.key;
 import static java.lang.Character.toLowerCase;
 import static java.lang.Math.abs;
 import static java.util.Arrays.asList;
 public class CaesarCipher {
 
-    static String inputText =  "По легенде Великий Северный Воин, прознал о великане, который жил в озере с лотосами, поедавшего любого, кто подходил близко к озеру и поклялся его убить. Воин нанес татау на своё тело, взяв силу из земли мёртвых. Затем он собрался и пошёл по тропе к озеру с лотосами, воин победил великана и отсёк ему голову своим кинжалом, которая упала на землю и стала островом. Потомки воина стали называться ракьят и заселили остров. Позднее остров был открыт и частично заселён переселенцами из Европы. Ракьят жили в содружестве с колонистами, переняли их язык, научились пользоваться их технологиями, хотя сами не развивались, как и предыдущие несколько тысяч лет. In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.";
     static String resultText = "";
     private final static List<Character> CYPHER_ALPHABET = fillAlphabet();
-    private final static int ENG_ALPHABET_SIZE = 26;
-    private final static int RU_ALPHABET_SIZE = 32; // Without Ёё
+
     private final static List<Character> CYPHER_ALPHABET_FOR_SPEC_SYMBOLS = asList(' ', '.', ',');
     private static final List<Character> SPEC_SYMBOLS = asList('!', '@', '#', '$', '%');
-    static int key = 5;
 
     private static List<Character> fillAlphabet() {
         List<Character> cypherAlphabet = new ArrayList<>();
@@ -69,7 +70,7 @@ public class CaesarCipher {
 
     private static String breakingTheCipher(String inputText) {
         StringBuilder sb = new StringBuilder();
-        key = findKey(inputText);
+        int key = findKey(inputText);
         for (int i = 0; i < inputText.length(); i++) {
             char sourceChar = inputText.charAt(i);
             int charIdx;
