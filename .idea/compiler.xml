@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MAI-academic-works" />
+        <module name="Neural" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
