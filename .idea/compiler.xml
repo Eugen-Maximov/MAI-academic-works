@@ -9,5 +9,8 @@
         <module name="MAI-academic-works" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AI" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
